@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Drum Kit</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+      html {
+        background-image:
+            linear-gradient(black, black),
+            url(background.jpeg);
+        background-size: cover;
+        background-blend-mode: saturation;
+      }
+      @media all and (max-width: 850px) {
+        .keys {
+            flex-wrap: wrap;
+        }
+      }
+      .key {
+        background: rgba(0,0,0,0.2);
+      }
+      .key:hover {
+        border-color: #ffc600;
+        cursor: pointer;
+        user-select: none;
+      }
+  </style>
+</head>
+<body>
+
+
+  <div class="keys">
+    <div data-key="1" class="key">
+      <kbd>1</kbd>
+      <span class="sound">clap</span>
+    </div>
+    <div data-key="2" class="key">
+      <kbd>2</kbd>
+      <span class="sound">hihat</span>
+    </div>
+    <div data-key="3" class="key">
+      <kbd>3</kbd>
+      <span class="sound">kick</span>
+    </div>
+    <div data-key="4" class="key">
+      <kbd>4</kbd>
+      <span class="sound">openhat</span>
+    </div>
+    <div data-key="5" class="key">
+      <kbd>5</kbd>
+      <span class="sound">boom</span>
+    </div>
+    <div data-key="6" class="key">
+      <kbd>6</kbd>
+      <span class="sound">ride</span>
+    </div>
+    <div data-key="7" class="key">
+      <kbd>7</kbd>
+      <span class="sound">snare</span>
+    </div>
+    <div data-key="8" class="key">
+      <kbd>8</kbd>
+      <span class="sound">tom</span>
+    </div>
+    <div data-key="9" class="key">
+      <kbd>9</kbd>
+      <span class="sound">tink</span>
+    </div>
+    <!-- <p class="info">Press or Click</p> -->
+  </div>
+
+  <audio data-key="1" src="sounds/clap.wav"></audio>
+  <audio data-key="2" src="sounds/hihat.wav"></audio>
+  <audio data-key="3" src="sounds/kick.wav"></audio>
+  <audio data-key="4" src="sounds/openhat.wav"></audio>
+  <audio data-key="5" src="sounds/boom.wav"></audio>
+  <audio data-key="6" src="sounds/ride.wav"></audio>
+  <audio data-key="7" src="sounds/snare.wav"></audio>
+  <audio data-key="8" src="sounds/tom.wav"></audio>
+  <audio data-key="9" src="sounds/tink.wav"></audio>
+
+<script>
+
+    function removeTransition(e) {
+        if (e.propertyName != 'transform') return;
+        e.target.classList.remove('playing');
+    }
+
+    function keydownSound(e) {
+        const pressedKey = document.querySelector('div[data-key="'+e.key+'"]');
+        const audio = document.querySelector('audio[data-key="'+e.key+'"]');
+        if (!audio) return;
+        pressedKey.classList.add('playing');
+        audio.currentTime = 0;
+        audio.play();
+    }
+
+    function clickSound() {
+        const clickedKey = this.getAttribute('data-key');
+        const audio = document.querySelector('audio[data-key="'+clickedKey+'"]');
+        if (!audio) return;
+        this.classList.add('playing');
+        audio.currentTime = 0;
+        audio.play();
+    } 
+
+    window.addEventListener('keydown',keydownSound);
+
+    const keys = document.querySelectorAll('.key');
+    keys.forEach(function(key) {
+        key.addEventListener('transitionend', removeTransition);
+        key.addEventListener('click', clickSound);
+    });
+
+
+</script>
+
+
+</body>
+</html>
