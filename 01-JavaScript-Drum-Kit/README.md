@@ -1,9 +1,10 @@
 # 01 - JavaScript Drum Kit
 
-LIVE DEMO: <https://serenaliaojc.github.io/JavaScript30/01 - JavaScript Drum Kit/index-SERENA.html>
+LIVE DEMO: <https://serenaliaojc.github.io/JavaScript30/01-JavaScript-Drum-Kit/index-SERENA.html>
+
 Image origin: https://www.pexels.com/photo/close-up-photo-of-drum-set-995301/
 
-[TOC]
+
 
 ## Key Concepts
 

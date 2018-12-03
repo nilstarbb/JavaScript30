@@ -10,7 +10,7 @@ Original files: [https://github.com/wesbos/JavaScript30](https://github.com/wesb
 
 ## My Solutions
 
-1. JavaScript Drum Kit - [Live Demo](https://serenaliaojc.github.io/JavaScript30/01-JavaScript-Drum-Kit/index-SERENA.html) | [Notes](https://serenaliaojc.github.io/JavaScript30/01-JavaScript-Drum-Kit/README.md)
+1. JavaScript Drum Kit - [Live Demo](https://serenaliaojc.github.io/JavaScript30/01-JavaScript-Drum-Kit/index-SERENA.html) | [Notes](https://github.com/serenaliaojc/JavaScript30/tree/master/01-JavaScript-Drum-Kit)
    
    Changes:
 
